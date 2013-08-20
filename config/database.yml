@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: moderation
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: moderation_test
+  host: localhost
+
+# This will need to change for later
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
