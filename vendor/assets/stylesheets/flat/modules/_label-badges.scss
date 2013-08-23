@@ -1,0 +1,88 @@
+//
+// Labels & Badges
+// --------------------------------------------------
+
+.label,
+.badge {
+  background-color: mix($inverse, $base, 90%);
+  color: mix($base, $inverse, 65%);
+  font-size: $base-font-size * .929;
+  line-height: $base-font-size * 1.286; // ~18px
+  font-weight: normal;
+  margin-right: 4px;
+  padding: 1px 9px 2px;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+  // Labels & Badges Sizes
+  // --------------------------------------------------
+  .label-small, .badge-small {
+    @extend .label;
+    font-size: $base-font-size * .72;
+    line-height: $base-font-size; // == 14px
+    font-weight: 600;
+    padding: 0 5px 2px;
+  }
+  .label-large, .badge-large {
+    @extend .label;
+    font-weight: 600;
+    padding: 4px 10px 5px;
+    @include border-radius(4px);
+  }
+
+  // Alternate Colors
+  // --------------------------------------------------
+  .label-inverse,
+  .label-inverse[href],
+  .badge-inverse,
+  .badge-inverse[href] {
+    @extend .label;
+    background-color: $base;
+    color: $inverse;
+  }
+  .label-success,
+  .label-success[href],
+  .badge-success,
+  .badge-success[href] {
+    @extend .label;
+    background-color: $success;
+    color: $inverse;
+  }
+  .label-important,
+  .label-important[href],
+  .badge-important,
+  .badge-important[href] {
+    @extend .label;
+    background-color: $danger;
+    color: $inverse;
+  }
+  .label-warning,
+  .label-warning[href],
+  .badge-warning,
+  .badge-warning[href] {
+    @extend .label;
+    background-color: $warning;
+    color: $inverse;
+  }
+  .label-info,
+  .label-info[href],
+  .badge-info,
+  .badge-info[href] {
+    @extend .label;
+    background-color: $info;
+    color: $inverse;
+  }
+  .label-primary,
+  .label-primary[href],
+  .badge-primary,
+  .badge-primary[href] {
+    background-color: $firm;
+    color: $inverse;
+  }
+
+// Badge case
+.badge {
+  @include border-radius(4px);
+}
+

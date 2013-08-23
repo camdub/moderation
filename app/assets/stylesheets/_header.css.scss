@@ -1,0 +1,29 @@
+.navigation {
+  margin-top: 26px;
+  text-align: right;
+
+  .btn-social-facebook {
+    line-height: 15px;
+  }
+}
+
+/* CATEGORY STATUS AREA */
+.category-status > i {
+  color: $light-text;
+  margin-right: 20px;
+}
+
+.category-status {
+  display: inline-block;
+}
+.light-text {
+  color: $light-text;
+}
+
+.restricted { 
+  color: $danger;
+}
+
+.limited {
+  color: $warning;
+}

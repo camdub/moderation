@@ -2,13 +2,22 @@
 <html>
 <head>
   <title>Moderation</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+
+  <header class="row">
+    <h2 class="span6">moderation plan</h2>
+    <div class="navigation span6">
+      <a href="" class="btn btn-social-facebook"><i class="icon-facebook"></i> Login with Facebook</a>
+    </div>
+  </header>
+  <%= yield %>
+</div>
 
 </body>
 </html>
