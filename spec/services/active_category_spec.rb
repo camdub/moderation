@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe ActiveCategory do
   describe '#restricted' do
-    let(:categories) { ['meat', 'sweets'] }
+    
+    let(:categories) { FactoryGirl.create_list(:category, 2).map { |c| c.name } }
     let(:active_category) { ActiveCategory.new }
 
     it 'returns the what category is currently restricted' do

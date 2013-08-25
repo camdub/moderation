@@ -1,12 +1,12 @@
 class ActiveCategory
-  def initialize()
+  def initialize
   end
 
   def restricted
-    'meat'
+    Category.first.name
   end
 
   def limited
-    'sweets'
+    Category.first.name
   end
 end

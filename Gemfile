@@ -9,6 +9,8 @@ gem 'bootstrap-sass'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'koala'
+
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
