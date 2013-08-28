@@ -4,11 +4,15 @@ describe ActiveCategory do
 
   before(:all) do
     @active_category = ActiveCategory.new
+    # insert extra records (to test 'currently' chosen categories)
+    week = create(:week, start_date: Date.today - 1.weeks)
+    create(:restricted_history, week: week)
+    create(:limited_history, week: week)
   end
 
   describe '#restricted' do
     
-    let(:restricted) { FactoryGirl.create(:restricted_history) }
+    let(:restricted) { create(:restricted_history) }
 
     it 'returns the category that is currently restricted' do
       expect(restricted.category.name).to eq(@active_category.restricted)
@@ -17,7 +21,7 @@ describe ActiveCategory do
 
   describe '#limited' do
 
-    let(:limited) { FactoryGirl.create(:limited_history) }
+    let(:limited) { create(:limited_history) }
 
     it 'returns the category that is currently limited' do
       expect(limited.category.name).to eq(@active_category.limited)

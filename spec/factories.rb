@@ -1,8 +1,14 @@
 require 'factory_girl'
 
 FactoryGirl.define do
+
+  sequence :category_options do |n|
+    categories = %w(meat sweets alcohol)
+    categories[n % categories.length]
+  end
+
   factory :category do
-    name   'meat'
+    name { generate(:category_options) }
     active true
   end
 
