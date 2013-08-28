@@ -6,8 +6,9 @@ class CategoryHistoriesController < ApplicationController
   end
 
   def active_category
-    @restricted = 'meat'
-    @limited = 'sweets'
+    ac ||= ActiveCategory.new
+    @restricted = ac.restricted
+    @limited = ac.limited
   end
 
 end
