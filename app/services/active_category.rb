@@ -1,19 +1,27 @@
 class ActiveCategory
-  def restricted
-    @restricted ||= get_record(:restricted).name
-  end
 
-  def limited
-    @limited ||= get_record(:limited).name
-  end
+  class << self
+    def get_restricted
+      get_name :restricted
+    end
 
-  private
-  def get_record(limit_level)
-    CategoryHistory.
-      includes(:limit_level, :week).
-      where(limit_levels: { name: limit_level }).
-      references(:limit_level).order("weeks.start_date DESC")
-      .first.category
+    def get_limited
+      get_name :limited
+    end
+
+    private
+    def get_name(level)
+      record = get_record(level)
+      record.nil? ? "" : record.category.name
+    end
+
+    def get_record(limit_level)
+        CategoryHistory.
+          includes(:limit_level, :week).
+          where(limit_levels: { name: limit_level }).
+          references(:limit_level).order("weeks.start_date DESC")
+          .first
+    end
   end
 
 end

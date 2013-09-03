@@ -141,7 +141,7 @@
 }
 
 @mixin drop-ie-gradient {
-  filter: unquote("progid:DXImageTransform@mixin Microsoft@mixin gradient(enabled = false)");
+  filter: unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)");
 }
 
 @mixin swap-button-color($color, $hover, $active) {

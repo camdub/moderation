@@ -24,6 +24,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'timecop'
+  gem 'capybara-webkit'
 end
 
 group :doc do

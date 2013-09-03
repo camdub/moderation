@@ -3,7 +3,7 @@ require 'factory_girl'
 FactoryGirl.define do
 
   sequence :category_options do |n|
-    categories = %w(meat sweets alcohol)
+    categories = %w(meat sweets alcohol fried_food caffeine white_carbs)
     categories[n % categories.length]
   end
 
