@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130824225033) do
+ActiveRecord::Schema.define(version: 20130911015001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20130824225033) do
     t.datetime "updated_at"
   end
 
+  create_table "cycles", force: true do |t|
+    t.integer  "number"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "limit_levels", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -40,9 +47,11 @@ ActiveRecord::Schema.define(version: 20130824225033) do
   create_table "weeks", force: true do |t|
     t.integer  "week_number"
     t.date     "start_date"
-    t.integer  "cycle"
+    t.integer  "cycle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
+    t.boolean  "chosen"
   end
 
 end
