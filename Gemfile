@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'koala'
+gem 'rails_12factor', group: :production
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
