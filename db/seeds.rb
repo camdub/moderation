@@ -6,7 +6,7 @@ LimitLevel.delete_all
 CategoryHistory.delete_all
 
 categories = [
-  'caffiene',
+  'caffeine',
   'alcohol',
   'fried food',
   'sweets',
