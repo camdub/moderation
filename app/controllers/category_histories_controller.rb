@@ -3,6 +3,7 @@ class CategoryHistoriesController < ApplicationController
   before_filter :active_category, only: [:index]
 
   def index
+    @category_count = Category.count
   end
 
   def active_category
