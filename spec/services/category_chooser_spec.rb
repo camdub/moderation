@@ -1,15 +1,20 @@
 require 'spec_helper'
 require 'category_chooser'
 
-# [x] returns vaild category
-# [x] returns unchosen category
-# [x] respects cycles/weeks
-# [x] avoids same category in same week (not one cat for both restricted and limited)
+=begin
+diagram of data model -
+ https://www.lucidchart.com/documents/view/42f01c50-5327-3592-b940-68330a00520b
 
-# QUESIONS
-# passing string/id/AR object to choose (cameron says string)
-# bad to test for two things in a test, if yes, how do you join common logic
-# should we unit test all of our private chooser methods?
+Test Cases
+  - get current cycle: select weeks where cycle.active = true
+    - set week.active = false
+    - if week_number == # of categories start a new cycle
+      else cont
+    - create new week and set to active
+  - get list of unchosen categories [1,2] - []
+  - create catHist with current week and random cat
+  - do same for both limit levels, ensuring both are not equal
+=end
 
 describe CategoryChooser, '.choose' do
 
@@ -49,7 +54,7 @@ describe CategoryChooser, '.choose' do
   end
 
   it 'start of new cycle allows all categories to be chosen' do
-    categories = create(:category, 2)
+    categories = create_list(:category, 2)
     histories = {}
     categories.each_with_index do |category, idx|
       histories[idx] = create(:category_history, category: category)

@@ -2,8 +2,6 @@ class Week < ActiveRecord::Base
   has_many :category_histories
   belongs_to :cycle
 
-  scope :get_previous_week, ->{ }
+  scope :get_current_cycle, -> { includes(:cycle).where(cycles: { active: true }) }
 
-  def self.create_current_week
-  end
 end

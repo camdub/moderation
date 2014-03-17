@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :cycle do
-    number 1
+    sequence(:number, 1)
     active true
   end
 
