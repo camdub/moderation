@@ -12,11 +12,6 @@ FactoryGirl.define do
     active true
   end
 
-  factory :cycle do
-    sequence(:number, 1)
-    active true
-  end
-
   factory :limit_level do
     trait :restricted do
       name 'restricted'
@@ -29,7 +24,6 @@ FactoryGirl.define do
 
   factory :week do
     week_number 1
-    cycle
     start_date { Date.today }
   end
 

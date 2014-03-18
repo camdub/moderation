@@ -4,9 +4,13 @@ class Cycle < ActiveRecord::Base
 
   def self.new_cycle
     a = self.active.first
-    a.active = false
-    a.save
-    self.create(number: a.number+1, active: true)
+    if a.nil?
+      self.create(number: 1, active: true)
+    else
+      a.active = false
+      a.save
+      self.create(number: a.number+1, active: true)
+    end
   end
 
   def self.get_active

@@ -5,22 +5,19 @@ describe Week do
 
   describe '.in_cycle' do
 
-    before(:each) do
-        @current = create(:cycle, active: true)
-        @past = create(:cycle, active: false)
-    end
-
     it 'returns a list of weeks of the current cycle' do
-        create(:week, week_number: 1, cycle: @current)
-        create(:week, week_number: 2, cycle: @current)
-        create(:week, week_number: 3, cycle: @past)
+        @past = Cycle.new_cycle
+        Week.create(week_number: 3, cycle: @past)
 
-        expect(Week.in_cycle.length).to eq 2
+        @current = Cycle.new_cycle
+        Week.create(week_number: 1, cycle: @current)
+        Week.create(week_number: 2, cycle: @current)
+        expect(Week.in_cycle.count).to eq 2
     end
   end
 
   describe '.create_next' do
-    let (:curr) { create(:cycle) }
+    let (:curr) { Cycle.new_cycle }
 
     it 'creates week #1 if no weeks in current cycle' do
         w = Week.create_next

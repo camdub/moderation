@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Cycle do
   describe '.active' do
     it 'returns the number of the active cycle' do
-      curr = create(:cycle)
+      curr = Cycle.new_cycle
       expect(Cycle.get_active.number).to eq curr.number
     end
   end
@@ -11,7 +11,7 @@ describe Cycle do
   describe '.new_cycle' do
 
     before(:all) do
-      @old = create(:cycle)
+      @old = Cycle.new_cycle
       Cycle.new_cycle
     end
 

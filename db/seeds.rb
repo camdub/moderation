@@ -3,6 +3,7 @@
 
 Category.delete_all
 LimitLevel.delete_all
+Cycle.delete_all
 CategoryHistory.delete_all
 
 categories = [
@@ -24,18 +25,4 @@ limit_levels = [
 ]
 
 limit_levels.each { |level| LimitLevel.create(name: level) }
-
-week = Week.create(week_number: 1, cycle: 1, start_date: Date.today)
-
-# Temporarily seed an initial history entry
-CategoryHistory.create(
-  category: Category.first, 
-  limit_level: LimitLevel.first,
-  week: week
-)
-
-CategoryHistory.create(
-  category: Category.last,
-  limit_level: LimitLevel.last,
-  week: week
-)
+Cycle.create(number: 1, active: true)

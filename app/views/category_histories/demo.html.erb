@@ -1,0 +1,26 @@
+<%= link_to "Choose New Week", choose_path, remote: true %>
+<br/>
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>Cycle</th>
+            <th>Week</th>
+            <th>Category</th>
+            <th>Limit Level</th>
+        </tr>
+    </thead>
+    <tbody id="tbl-body">
+        <%= render @histories %>
+    </tbody>
+</table>
+
+<style type="text/css">
+    td {
+        text-align: center;
+        padding: 10px 0;
+        border: 1px solid #34495e;
+    }
+    table {
+        border: 1px solid #34495e;
+    }
+</style>
