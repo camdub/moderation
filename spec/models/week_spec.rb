@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Week do
   it { expect(subject).to have_many(:category_histories) }
 
-  describe '.get_current_cycle' do
+  describe '.in_cycle' do
 
     before(:each) do
         @current = create(:cycle, active: true)
@@ -15,7 +15,7 @@ describe Week do
         create(:week, week_number: 2, cycle: @current)
         create(:week, week_number: 3, cycle: @past)
 
-        expect(Week.get_current_cycle.length).to eq 2
+        expect(Week.in_cycle(@current).length).to eq 2
     end
   end
 end

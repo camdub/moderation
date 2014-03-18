@@ -34,16 +34,12 @@ FactoryGirl.define do
   end
 
   factory :category_history do
-    factory :restricted_history do
-      association :limit_level, :restricted
-      category
-      week
-    end
+    week
+    category
+    association :limit_level
 
-    factory :limited_history do
-      association :limit_level, :limited
+    trait :limited_history do
       association :category, name: 'sweets'
-      week
     end
   end
 
