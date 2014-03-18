@@ -6,7 +6,6 @@ class Cycle < ActiveRecord::Base
     a = self.active.first
     a.active = false
     a.save
-    p a
     self.create(number: a.number+1, active: true)
   end
 
